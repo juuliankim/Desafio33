@@ -1,0 +1,75 @@
+{{#if showLogin}}
+<div class="container">
+<form action="" method="POST" id="form-login">
+    <div class="mb-3">
+        <label for="inputUsername" class="form-label">Ingrese su nombre</label>
+        <input type="text" name="username" class="form-control form-text" id="username">
+    </div>
+    <button class="btn btn-info mt-3">Login</button>
+</form>
+</div>
+{{/if}}
+{{#if showBienvenida}}
+<div class="container bienvenida">
+    <span>
+        <img style="float: left;" src="{{urlImg}}" alt="Foto de perfil">
+        <h3 id="bienvenida">Bienvenido {{bienvenida}}</h3>
+        <h4>Email: {{email}}</h4>
+
+        <form style="float: right;" action="/logout" method="GET">
+            <button type="submit" id="boton-logout" class="btn btn-danger">Logout</button>
+        </form>
+    </span>
+
+</div>
+{{/if}}
+{{#if showContent}}
+<div class="container">
+    <h2>Ingrese Producto</h2>
+
+    <form id="form-productos">
+        <div class="mb-3">
+            <label for="inputTitulo" class="form-label">Titulo</label>
+            <input type="text" class="form-control form-text" id="inputTitulo" aria-describedby="emailHelp"
+                name="title">
+        </div>
+        <div class="mb-3">
+            <label for="inputPrecio" class="form-label">Precio</label>
+            <input type="text" class="form-control form-text" id="inputPrecio" name="price">
+        </div>
+        <div class="mb-3">
+            <label for="inputThumbnail" class="form-label">Thumbnail</label>
+            <input type="text" class="form-control form-text" id="inputThumbnail" name="thumbnail">
+        </div>
+        <button class="btn btn-info mt-3">Enviar</button>
+        <!-- <input type="submit" id="boton-enviar" onclick="location.href = '/api/productos/listar'" value="Enviar"> -->
+    </form>
+
+    <div id="tabla"></div>
+
+    <div id="centro-mensajes">
+        <h1>Centro de Mensajes</h1>
+        <br>
+        <input type="text" id="email" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu email">
+        <input type="text" id="nombre" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu nombre">
+        <input type="text" id="apellido" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu apellido">
+        <input type="number" id="edad" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu edad">
+        <input type="text" id="alias" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu alias">
+        <input type="text" id="avatar" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu avatar">
+        <hr>
+        <div id="messages"></div>
+
+        <form class="form-inline mt-3" onsubmit="return addMessage(this)" autocomplete="off">
+            <input type="text" id="texto" class="form-control my-2 mr-2" placeholder="Ingresá un mensaje...">
+            <input id="enviar" class="btn btn-primary my-2" type="submit" value="Enviar!">
+        </form>
+    </div>
+</div>
+{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="chat.js"></script>
+<script src="index.js"></script>
